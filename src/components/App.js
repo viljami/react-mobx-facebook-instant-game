@@ -8,7 +8,6 @@ const answer = new Answer('camels');
 
 @observer
 class App extends Component {
-
   render() {
     return (
       <Provider answer={answer}>
