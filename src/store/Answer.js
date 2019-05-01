@@ -13,7 +13,7 @@ export class Answer {
 
 
   @computed
-  get getGreeting() {
+  get greeting() {
     return `Hello ${this.title}`;
   }
 
