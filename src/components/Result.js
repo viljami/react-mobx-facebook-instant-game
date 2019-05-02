@@ -9,7 +9,7 @@ class Result extends Component {
 
     return (
       <div className="quiz">
-        <h1>Result: {answer.greeting}</h1>
+        <h1>Result: {answer.camels}</h1>
         <button onClick={() => history.push('/quiz')}>Go back</button>
       </div>
     );

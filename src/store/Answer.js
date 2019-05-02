@@ -5,22 +5,24 @@ import {
 } from 'mobx';
 
 export class Answer {
-  @observable title;
+  @observable age;
+  @observable height;
 
-  constructor(title) {
-    this.title = title;
+  constructor() {
+    this.age = 22;
+    this.height = 176;
   }
-
 
   @computed
-  get greeting() {
-    return `Hello ${this.title}`;
+  get camels() {
+    return this.age * this.height;
   }
 
-  @action
-  updateTitle(n) {
-    this.title = `Camels ${n} required!`;
-  }
+  @action.bound
+  setAge(n) { this.age = n; }
+
+  @action.bound
+  setHeight(n) { this.height = n; }
 }
 
 export default Answer
