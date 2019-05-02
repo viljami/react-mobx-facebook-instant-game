@@ -52,6 +52,7 @@
     "react-bulma-components": "^2.3.0",
     "react-dev-utils": "^9.0.0",
     "react-dom": "^16.8.6",
+    "react-facebook": "^8.0.4",
     "react-router-dom": "^5.0.0",
     "resolve": "1.10.0",
     "semver": "6.0.0",
