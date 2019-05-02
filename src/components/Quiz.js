@@ -8,7 +8,9 @@ import Slider from './Slider';
 const {
   Control,
   Field,
-  Label
+  Input,
+  Label,
+  Select
 } = Form;
 
 @inject('answer')
@@ -19,6 +21,14 @@ class Quiz extends Component {
     history: PropTypes.object.isRequired
   };
 
+  setHairColor = e => {
+    this.props.answer.setHairColor(e.target.value);
+  };
+
+  setFirstWord = e => {
+    this.props.answer.setFirstWord(e.target.value);
+  };
+
   render () {
     const {answer, history} = this.props;
 
@@ -27,18 +37,55 @@ class Quiz extends Component {
         <Field>
           <Label>Age: {answer.age}</Label>
           <Control>
-            <Slider min={0} max={answer.maxAge} value={answer.age} onChange={answer.setAge}/>
+            <Slider
+              min={0}
+              max={answer.maxAge}
+              value={answer.age}
+              onChange={answer.setAge}
+            />
           </Control>
         </Field>
 
         <Field>
           <Label>Height (cm): {answer.height}</Label>
           <Control>
-            <Slider min={0} max={answer.maxHeight} value={answer.height} onChange={answer.setHeight}/>
+            <Slider
+              min={0}
+              max={answer.maxHeight}
+              value={answer.height}
+              onChange={answer.setHeight}
+            />
           </Control>
         </Field>
 
-        <Button color='info' onClick={() => history.push('/result')}>Calculate</Button>
+        <Field>
+          <Label>Hair color: {answer.hairColor}</Label>
+          <Control>
+            <Select onChange={this.setHairColor} value={answer.hairColor}>
+              {
+                answer.hairColors.map(a => <option key={a}>{a}</option>)
+              }
+            </Select>
+          </Control>
+        </Field>
+
+        <Field>
+          <Label>First word: {answer.firstWord}</Label>
+          <Control>
+            <Input
+              type='text'
+              value={answer.firstWord}
+              onChange={this.setFirstWord}
+            />
+          </Control>
+        </Field>
+
+        <Button
+          color='info'
+          onClick={() => history.push('/result')}
+        >
+          Calculate
+        </Button>
       </div>
     );
   }

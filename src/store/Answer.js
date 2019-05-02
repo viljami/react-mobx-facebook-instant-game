@@ -7,33 +7,42 @@ import calculate from '../lib/calculate';
 
 const {floor} = Math;
 
-export class Answer {
-  @observable age;
-  @observable height;
+export default class Answer {
+  @observable age = 22;
+  @observable height = 176;
+  @observable hairColor = 'Ginger';
+  @observable firstWord = '';
 
   maxAge = 110;
   maxHeight = 310;
-
-  constructor() {
-    this.age = 22;
-    this.height = 176;
-  }
+  hairColors = [
+    'Ginger',
+    'Dark',
+    'Brunette',
+    'Blonde'
+  ];
 
   @computed
   get camels() {
     const normalizedOutput = calculate(
       this.age / this.maxAge,
-      this.height / this.maxHeight
+      this.height / this.maxHeight,
+      this.hairColors.length - this.hairColors.indexOf(this.hairColor),
+      this.firstWord.length
     );
-    console.log(normalizedOutput);
+
     return floor(normalizedOutput * 100);
   }
 
-  @action.bound
-  setAge(n) { this.age = n; }
+  @action
+  setAge = n => { this.age = n; };
 
-  @action.bound
-  setHeight(n) { this.height = n; }
-}
+  @action
+  setHeight = n => { this.height = n; };
 
-export default Answer
+  @action
+  setHairColor = color => { this.hairColor = color; };
+
+  @action
+  setFirstWord = s => { this.firstWord = s; };
+};
