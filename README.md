@@ -13,6 +13,17 @@ Bulma Components have 4 high security issues!
 
 In the project directory, you can run:
 
+### Facebook Id and other secrets
+
+Create ```.env``` file to pass 3rd party api ids etc to the front end. The file format is:
+
+```
+REACT_APP_FACEBOOK_APP_ID=123456789
+REACT_APP_SECRET_KEY=0000
+```
+
+```REACT_APP_``` - prefix is important if you want the env variable visible to the front end.
+
 ### `npm start`
 
 Runs the app in the development mode.<br>
