@@ -1,6 +1,6 @@
 {
   "name": "camels",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "dependencies": {
     "@babel/core": "7.4.3",
@@ -148,5 +148,6 @@
         }
       ]
     ]
-  }
+  },
+  "license" : "MIT"
 }
