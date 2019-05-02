@@ -9,11 +9,7 @@ Using:
 
 Bulma Components have 4 high security issues!
 
-## Available Scripts
-
-In the project directory, you can run:
-
-### Facebook Id and other secrets
+## Setup
 
 Create ```.env``` file to pass 3rd party api ids etc to the front end. The file format is:
 
@@ -23,6 +19,10 @@ REACT_APP_SECRET_KEY=0000
 ```
 
 ```REACT_APP_``` - prefix is important if you want the env variable visible to the front end.
+
+## Available Scripts
+
+In the project directory, you can run:
 
 ### `npm start`
 
@@ -47,18 +47,11 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
 ### Making a Progressive Web App
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
 
-### Advanced Configuration
+## Development thoughts
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+We could use simple trained regression algorithim or small neural network to calculate the resulting amount of camels. This could make the app harder to copy and tracking copies easier.
+

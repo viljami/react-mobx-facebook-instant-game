@@ -27,14 +27,14 @@ class Quiz extends Component {
         <Field>
           <Label>Age: {answer.age}</Label>
           <Control>
-            <Slider min={0} max={100} value={answer.age} onChange={answer.setAge}/>
+            <Slider min={0} max={answer.maxAge} value={answer.age} onChange={answer.setAge}/>
           </Control>
         </Field>
 
         <Field>
           <Label>Height (cm): {answer.height}</Label>
           <Control>
-            <Slider min={0} max={300} value={answer.height} onChange={answer.setHeight}/>
+            <Slider min={0} max={answer.maxHeight} value={answer.height} onChange={answer.setHeight}/>
           </Control>
         </Field>
 
