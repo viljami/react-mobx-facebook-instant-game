@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {onError} from "mobx-react"
-import './index.css';
 import App from './components/App';
 import * as serviceWorker from './lib/serviceWorker';
+import './index.scss';
 
 ReactDOM.render(<App />, document.getElementById('root'));
 

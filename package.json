@@ -53,7 +53,6 @@
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.0.0",
     "resolve": "1.10.0",
-    "sass-loader": "7.1.0",
     "semver": "6.0.0",
     "style-loader": "0.23.1",
     "terser-webpack-plugin": "1.2.3",
@@ -84,7 +83,9 @@
     ]
   },
   "devDependencies": {
-    "@babel/plugin-proposal-decorators": "^7.4.4"
+    "@babel/plugin-proposal-decorators": "^7.4.4",
+    "node-sass": "^4.12.0",
+    "sass-loader": "^7.1.0"
   },
   "jest": {
     "collectCoverageFrom": [

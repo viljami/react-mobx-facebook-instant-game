@@ -4,7 +4,7 @@ import {BrowserRouter as Router, Route, Redirect, Switch} from 'react-router-dom
 import Answer from '../store/Answer';
 import Quiz from './Quiz';
 import Result from './Result';
-import './App.css';
+import './App.scss';
 
 const answer = new Answer('camels');
 

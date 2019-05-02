@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {withRouter} from 'react-router-dom';
-import {inject} from "mobx-react"
+import {inject} from 'mobx-react';
+import {Button} from 'react-bulma-components';
 
 @inject('answer')
 class Quiz extends Component {
@@ -10,7 +11,7 @@ class Quiz extends Component {
     return (
       <div className="quiz">
         <h1>Quiz: {answer.title}</h1>
-        <button onClick={() => history.push('/result')}>Submit</button>
+        <Button color='info' onClick={() => history.push('/result')}>Submit</Button>
       </div>
     );
   }
