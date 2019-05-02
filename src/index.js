@@ -5,8 +5,6 @@ import App from './components/App';
 import * as serviceWorker from './lib/serviceWorker';
 import './index.scss';
 
-console.log(process.env, __dirname);
-
 ReactDOM.render(<App />, document.getElementById('root'));
 
 onError(console.log);

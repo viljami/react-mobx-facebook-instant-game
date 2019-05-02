@@ -9,7 +9,7 @@ const nn = [ // completely random values (untrained network)
 ];
 
 export default (...inputs) => {
-  const outputs = nn.reduce((a, b) => console.log(a, b) ||
+  const outputs = nn.reduce((a, b) =>
     b.map(c => a.reduce((d, e) => atan(d + c * e), 0))
   , inputs)
 

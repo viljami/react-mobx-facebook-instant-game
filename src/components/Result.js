@@ -17,7 +17,7 @@ class Result extends Component {
 
   render () {
     const {answer, history} = this.props;
-    console.log(window.location.origin)
+
     return (
       <div className='quiz'>
         <h1 className='title has-text-centered'>
@@ -29,6 +29,12 @@ class Result extends Component {
 
         <p className='has-text-centered'>
           <FacebookProvider appId={process.env.REACT_APP_FACEBOOK_APP_ID}>
+            {/*
+              Attribute href should come from
+              window.location.href or .origin,
+              but it does not render the buttons
+              on localhost. So...
+            */}
             <ShareButton
               className='button is-info'
               href='http://kamelrechner.eu/en/result'

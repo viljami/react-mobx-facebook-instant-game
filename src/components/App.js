@@ -38,6 +38,12 @@ class App extends Component {
             <Footer>
               <Container>
                 <FacebookProvider appId={process.env.REACT_APP_FACEBOOK_APP_ID}>
+                  {/*
+                    Attribute href should come from
+                    window.location.href or .origin,
+                    but it does not render the buttons
+                    on localhost. So...
+                  */}
                   <Like href='http://kamelrechner.eu/en' colorScheme='dark' />
                 </FacebookProvider>
               </Container>
