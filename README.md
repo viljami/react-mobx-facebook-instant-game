@@ -55,3 +55,6 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/ma
 
 We could use simple trained regression algorithim or small neural network to calculate the resulting amount of camels. This could make the app harder to copy and tracking copies easier.
 
+## Known bugs
+
+Posting to Facebook causes an exception to be thrown (in Promise and it is unhandled).
