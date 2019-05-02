@@ -24,11 +24,13 @@ export default class Answer {
 
   @computed
   get camels() {
+    const l = this.hairColors.length;
+
     const normalizedOutput = calculate(
       this.age / this.maxAge,
       this.height / this.maxHeight,
-      this.hairColors.length - this.hairColors.indexOf(this.hairColor),
-      this.firstWord.length
+      (l - this.hairColors.indexOf(this.hairColor)) / l,
+      this.firstWord.length > 4 ? 0.7 : 0.3
     );
 
     return floor(normalizedOutput * 100);
