@@ -1,10 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {onError} from "mobx-react"
 import './index.css';
 import App from './components/App';
 import * as serviceWorker from './lib/serviceWorker';
 
 ReactDOM.render(<App />, document.getElementById('root'));
+
+onError(console.log);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
