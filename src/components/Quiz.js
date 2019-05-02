@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import {withRouter} from 'react-router-dom';
 import {inject, observer} from 'mobx-react';
 import {Button, Form} from 'react-bulma-components';
@@ -10,10 +11,14 @@ const {
   Label
 } = Form;
 
-
 @inject('answer')
 @observer
 class Quiz extends Component {
+  static propTypes = {
+    answer: PropTypes.object.isRequired,
+    history: PropTypes.object.isRequired
+  };
+
   render () {
     const {answer, history} = this.props;
 
