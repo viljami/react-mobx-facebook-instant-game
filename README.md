@@ -57,4 +57,15 @@ We could use simple trained regression algorithim or small neural network to cal
 
 ## Known bugs
 
-Posting to Facebook causes an exception to be thrown (in Promise and it is unhandled).
+Posting to Facebook and cancelling the post causes an exception to be thrown (in Promise and it is unhandled).
+
+Localization improvements:
+  * [Localization of React with Mobx](https://itnext.io/ultimate-localization-of-react-mobx-app-with-i18next-efab77712149)
+  * [automatically detect the browser language](https://www.npmjs.com/package/i18next-browser-languagedetector)
+  * [Localize instant game](https://developers.facebook.com/docs/games/instant-games/getting-started/game-setup#localize)
+  * Skandinavian letter a with dots won't work as an html entity marking in translation.
+
+Aria compatible select etc
+  * [Reac-aria](https://www.npmjs.com/package/react-aria)
+
+

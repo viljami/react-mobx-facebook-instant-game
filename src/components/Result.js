@@ -7,6 +7,7 @@ import {
   ShareButton
 } from 'react-facebook';
 import {Button} from 'react-bulma-components';
+import {Trans} from 'react-i18next';
 
 @inject('answer')
 class Result extends Component {
@@ -16,14 +17,19 @@ class Result extends Component {
   };
 
   render () {
-    const {answer, history} = this.props;
+    const {answer, history, t} = this.props;
+    console.log(t);
 
     return (
       <div className='quiz'>
         <h1 className='title has-text-centered'>
-          <small>Your boyfriend is worth</small><br />
+          <small>
+            <Trans i18nKey='worth'>Your boyfriend is worth</Trans>
+          </small><br />
           {answer.camels}<br />
-          <small>camels!</small>
+          <small>
+            <Trans i18nKey='camels'>camels</Trans>!
+          </small>
         </h1>
 
 
@@ -40,14 +46,14 @@ class Result extends Component {
               href='http://kamelrechner.eu/en/result'
               quote={`My boyfriend is worth ${answer.camels} camels!`}
             >
-              Post on Facebook
+              <Trans i18nKey='postOnFacebook'>Post on Facebook</Trans>
             </ShareButton>
           </FacebookProvider>
         </p>
 
         <p>
           <Button onClick={() => history.push('/quiz')} className='is-success'>
-            Do again
+            <Trans i18nKey='doAgain'>Do again</Trans>
           </Button>
         </p>
       </div>

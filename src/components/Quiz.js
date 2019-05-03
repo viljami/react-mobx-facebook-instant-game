@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {withRouter} from 'react-router-dom';
 import {inject, observer} from 'mobx-react';
 import {Button, Form} from 'react-bulma-components';
+import {Trans, withTranslation} from 'react-i18next';
 import Slider from './Slider';
 
 const {
@@ -13,12 +14,14 @@ const {
   Select
 } = Form;
 
+@withTranslation()
 @inject('answer')
 @observer
 class Quiz extends Component {
   static propTypes = {
     answer: PropTypes.object.isRequired,
-    history: PropTypes.object.isRequired
+    history: PropTypes.object.isRequired,
+    t: PropTypes.func.isRequired
   };
 
   setHairColor = e => {
@@ -30,12 +33,12 @@ class Quiz extends Component {
   };
 
   render () {
-    const {answer, history} = this.props;
+    const {answer, history, t} = this.props;
 
     return (
       <div className="quiz">
         <Field>
-          <Label>Age: {answer.age}</Label>
+          <Label><Trans i18nKey='age'>Age</Trans>: {answer.age}</Label>
           <Control>
             <Slider
               min={0}
@@ -47,7 +50,7 @@ class Quiz extends Component {
         </Field>
 
         <Field>
-          <Label>Height (cm): {answer.height}</Label>
+          <Label><Trans i18nKey='height'>Height</Trans> (cm): {answer.height}</Label>
           <Control>
             <Slider
               min={0}
@@ -59,18 +62,32 @@ class Quiz extends Component {
         </Field>
 
         <Field>
-          <Label>Hair color: {answer.hairColor}</Label>
+          <Label>
+            <Trans i18nKey='hairColor'>
+              Hair color
+            </Trans>: <Trans i18nKey={answer.hairColor.toLowerCase()}>
+              {answer.hairColor}
+            </Trans>
+          </Label>
           <Control>
             <Select onChange={this.setHairColor} value={answer.hairColor}>
               {
-                answer.hairColors.map(a => <option key={a}>{a}</option>)
+                answer.hairColors.map(a => (
+                  <option key={a}>
+                    {t(a.toLowerCase())}
+                  </option>
+                ))
               }
             </Select>
           </Control>
         </Field>
 
         <Field>
-          <Label>First word: {answer.firstWord}</Label>
+          <Label>
+            <Trans i18nKey='firstWord'>
+              First word
+            </Trans>: {answer.firstWord}
+          </Label>
           <Control>
             <Input
               type='text'

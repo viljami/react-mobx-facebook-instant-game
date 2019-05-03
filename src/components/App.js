@@ -1,58 +1,50 @@
-import React, {Component} from 'react';
+import React, {Suspense}  from 'react';
 import {Provider} from 'mobx-react';
-import {
-  BrowserRouter as Router,
-  Route,
-  Redirect,
-  Switch
-} from 'react-router-dom';
-import {Container, Section, Footer} from 'react-bulma-components';
-import {FacebookProvider, Like} from 'react-facebook';
+import DevTools from 'mobx-react-devtools';
+import {Container, Section} from 'react-bulma-components';
+import {I18nextProvider, useTranslation} from 'react-i18next';
 import Answer from '../store/Answer';
-import Quiz from './Quiz';
-import Result from './Result';
+import Locale from '../store/Locale';
+import i18nInit, {reactToLangChange} from '../lib/i18n';
+import Routes from './Routes';
+import Loading from './Loading';
+import Footer from './Footer';
 import './App.scss';
 
-const answer = new Answer('camels');
+const answer = new Answer();
+const locale = new Locale();
 
-class App extends Component {
-  render() {
-    return (
-      <Provider answer={answer}>
+const i18n = i18nInit();
+reactToLangChange(locale);
+
+const App = () => {
+  const [t] = useTranslation();
+
+  return (
+    <Provider answer={answer} locale={locale}>
+      <I18nextProvider i18n={i18n}>
         <div id='app'>
           <Section>
             <Container>
-              <h1 className='title'>How many camels for your boyfriend?</h1>
+              <h1 className='title'>{t('title')}</h1>
 
-              <Router>
-                <Switch>
-                    <Route path='/quiz' component={Quiz} state={answer} />
-                    <Route path='/result' component={Result} state={answer} />
-                    <Redirect to='/quiz' />
-                </Switch>
-              </Router>
+              <Routes />
             </Container>
           </Section>
 
           <Section>
-            <Footer>
-              <Container>
-                <FacebookProvider appId={process.env.REACT_APP_FACEBOOK_APP_ID}>
-                  {/*
-                    Attribute href should come from
-                    window.location.href or .origin,
-                    but it does not render the buttons
-                    on localhost. So...
-                  */}
-                  <Like href='http://kamelrechner.eu/en' colorScheme='dark' />
-                </FacebookProvider>
-              </Container>
-            </Footer>
+            <Footer />
           </Section>
-        </div>
-      </Provider>
-    );
-  }
-}
 
-export default App;
+          <DevTools />
+        </div>
+      </I18nextProvider>
+    </Provider>
+  );
+};
+
+export default () => (
+  <Suspense fallback={<Loading />}>
+    <App />
+  </Suspense>
+);
