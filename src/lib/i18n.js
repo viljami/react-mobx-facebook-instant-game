@@ -14,13 +14,21 @@ export const reactToLangChange = localeStore => {
   );
 };
 
+const {pathname} = window.location;
+let path = pathname.replace('query', '').replace('result', '').replace('index.html', '');
+if (path.length === 1 && path === '/') {
+  path = '';
+} else if (path.length > 1 && path[path.length - 1] !== '/') {
+  path += '/';
+}
+
 export default () => {
   i18n
-  .use(XHR)
+  .use(new XHR(undefined, {loadPath: `${path}locales/{{lng}}/{{ns}}.json`}))
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
-    debug: true,
+    debug: false,
     fallbackLng: 'en',
     interpolation: {
       escapeValue: false, // not needed for react as it escapes by default
