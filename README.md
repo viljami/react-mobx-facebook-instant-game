@@ -4,7 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 Using:
   * Styles [Bulma Components](https://couds.github.io/react-bulma-components)
-  * Store [Mobx](https://mobx.js.org/getting-started.html)
+  * Store for application state management [Mobx](https://mobx.js.org/getting-started.html)
   * Framework [React](https://reactjs.org/)
 
 Bulma Components have 4 high security issues!
@@ -46,6 +46,14 @@ The build is minified and the filenames include the hashes.<br>
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### `npm run serve-build`
+
+To serve and test locally the build.
+
+### `npm run deploy`
+
+To deploy to the facebook instant games web hosting.
 
 ### Making a Progressive Web App
 
