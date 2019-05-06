@@ -1,0 +1,8 @@
+const {
+  REACT_APP_FACEBOOK_APP_ID,
+  REACT_APP_FACEBOOK_APP_ID_TEST,
+  NODE_ENV
+} = process.env;
+
+export const APP_ID = NODE_ENV === 'production' ?
+  REACT_APP_FACEBOOK_APP_ID : REACT_APP_FACEBOOK_APP_ID_TEST;

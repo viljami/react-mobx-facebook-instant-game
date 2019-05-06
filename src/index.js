@@ -1,9 +1,22 @@
+/* global FBInstant */
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {onError} from "mobx-react"
 import App from './components/App';
 import * as serviceWorker from './lib/serviceWorker';
 import './index.scss';
+
+window.addEventListener('load', function load() {
+  window.removeEventListener('load', load);
+
+  FBInstant
+  .initializeAsync()
+  .then(() => {
+    FBInstant.setLoadingProgress(100);
+  })
+  .then(FBInstant.startGameAsync);
+});
 
 ReactDOM.render(<App />, document.getElementById('root'));
 

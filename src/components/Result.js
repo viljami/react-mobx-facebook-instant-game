@@ -2,10 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {withRouter} from 'react-router-dom';
 import {inject} from 'mobx-react';
-import {
-  FacebookProvider,
-  ShareButton
-} from 'react-facebook';
+import {FacebookProvider, ShareButton} from 'react-facebook';
 import {Button} from 'react-bulma-components';
 import {Trans} from 'react-i18next';
 
@@ -17,8 +14,7 @@ class Result extends Component {
   };
 
   render () {
-    const {answer, history, t} = this.props;
-    console.log(t);
+    const {answer, history} = this.props;
 
     return (
       <div className='quiz'>
